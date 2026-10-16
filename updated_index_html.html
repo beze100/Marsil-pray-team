@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marsil Pray Team — United in Prayer, Growing in Faith</title>
+    <meta name="description" content="Welcome to Marsil Pray Team — a community devoted to prayer, worship, fellowship, and sharing the love of Jesus Christ.">
+    
+    <!-- Google Fonts: Playfair Display for headings & Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables & Design Tokens */
+        :root {
+            --primary: #0B192C;       /* Deep Navy / Midnight Blue */
+            --primary-light: #1E3E62;  /* Lighter Navy tone */
+            --accent: #D4AF37;        /* Warm Gold */
+            --accent-hover: #C5A028;  /* Darker Gold for hover */
+            --cream: #F9F6F0;         /* Soft Cream Background */
+            --white: #FFFFFF;
+            --text-dark: #2D3748;
+            --text-muted: #4A5568;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Resets & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Utility classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Animations & Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(11, 25, 44, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .logo-brand i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .btn-gold {
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(11, 25, 44, 0.7), rgba(11, 25, 44, 0.85)), url('https://placehold.co/1920x1080/0b192c/ffffff?text=Worship+and+Prayer') no-repeat center center/cover;
+            text-align: center;
+            color: var(--white);
+            padding: 8rem 1.5rem 5rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-verse {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            color: var(--accent);
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--accent);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-white:hover {
+            background-color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Section Commons */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 1.75rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(11, 25, 44, 0.05);
+            border-left: 4px solid var(--accent);
+            transition: var(--transition-smooth);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(11, 25, 44, 0.1);
+        }
+
+        .about-card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0 !important;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(11, 25, 44, 0.15);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border: 2px solid var(--accent);
+            max-width: 250px;
+        }
+
+        .experience-badge h4 {
+            color: var(--accent);
+            font-size: 1.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Ministries Section */
+        .ministries-bg {
+            background-color: var(--white);
+        }
+
+        .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .ministry-card {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(11, 25, 44, 0.06);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(11, 25, 44, 0.08);
+            border-color: var(--accent);
+        }
+
+        .ministry-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .ministry-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ministry-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .ministry-card h3 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .ministry-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .link-arrow {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .link-arrow:hover {
+            color: var(--accent);
+            gap: 0.75rem;
+        }
+
+        /* Prayer Request Section */
+        .prayer-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prayer-section .section-header h2 {
+            color: var(--white);
+        }
+
+        .prayer-section .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .prayer-form-wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .demo-notice {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .form-alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-alert.success {
+            background-color: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #d4edda;
+            display: block;
+        }
+
+        .form-alert.error {
+            background-color: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #f8d7da;
+            display: block;
+        }
+
+        /* Upcoming Events */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(11, 25, 44, 0.05);
+            border-top: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(11, 25, 44, 0.1);
+        }
+
+        .event-date-badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-hover);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .event-card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-info {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-info li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-info li i {
+            color: var(--accent);
+            width: 16px;
+        }
+
+        /* Scripture Banner Section */
+        .scripture-banner {
+            background: linear-gradient(rgba(11, 25, 44, 0.85), rgba(11, 25, 44, 0.9)), url('https://placehold.co/1920x600/0b192c/ffffff?text=Scripture+Background') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 7rem 1.5rem;
+            position: relative;
+        }
+
+        .scripture-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .scripture-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .scripture-banner blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .scripture-banner cite {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Sermons Section */
+        .sermons-bg {
+            background-color: var(--white);
+        }
+
+        .sermons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .sermon-card {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(11, 25, 44, 0.06);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sermon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(11, 25, 44, 0.08);
+            border-color: var(--accent);
+        }
+
+        .sermon-media {
+            position: relative;
+            height: 200px;
+            background-color: var(--primary);
+        }
+
+        .sermon-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .sermon-card:hover .play-overlay {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--white);
+        }
+
+        .sermon-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sermon-meta {
+            font-size: 0.85rem;
+            color: var(--accent-hover);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sermon-card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .sermon-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(11, 25, 44, 0.05);
+            position: relative;
+            border: 1px solid rgba(11, 25, 44, 0.05);
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: rgba(212, 175, 55, 0.15);
+        }
+
+        .testimonial-text {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-author span {
+            font-size: 0.85rem;
+            color: var(--accent-hover);
+        }
+
+        .testimonial-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            border: 1px dashed var(--accent);
+        }
+
+        .testimonial-cta p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-hover);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info-list h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-info-list p, .contact-info-list a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-info-list a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 10px rgba(11, 25, 44, 0.1);
+        }
+
+        .social-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(11, 25, 44, 0.08);
+            border: 1px solid rgba(11, 25, 44, 0.05);
+        }
+
+        .contact-form-card h3 {
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form-card .form-control {
+            background: var(--cream);
+            border: 1px solid rgba(11, 25, 44, 0.1);
+            color: var(--text-dark);
+        }
+
+        .contact-form-card .form-control:focus {
+            background: var(--white);
+            border-color: var(--accent);
+        }
+
+        .contact-form-card .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .contact-form-card label {
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 1.25rem 0 1.5rem;
+            font-size: 0.95rem;
+            max-width: 350px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .footer-bottom .closing-quote {
+            color: var(--accent);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            z-index: 999;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .about-image-wrapper img {
+                height: 400px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
+                transition: left 0.4s ease-in-out;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .experience-badge {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: -40px;
+                margin-left: 20px;
+                max-width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo-brand">
+                <i class="fa-solid fa-cross"></i>
+                <span>Marsil Pray Team</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#ministries">Ministries</a></li>
+                <li><a href="#prayer">Prayer Requests</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#sermons">Sermons</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#prayer" class="btn-gold">Join Our Prayer Team</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content reveal">
+            <div class="hero-verse">
+                “Pray without ceasing.” — 1 Thessalonians 5:17
+            </div>
+            <h1>United in Prayer, Growing in Faith</h1>
+            <p>Welcome to Marsil Pray Team — a community devoted to prayer, worship, fellowship, and sharing the love of Jesus Christ.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-gold">
+                    <i class="fa-solid fa-hands-praying"></i> Join Our Community
+                </a>
+                <a href="#prayer" class="btn-outline-gold">
+                    <i class="fa-solid fa-envelope-open-text"></i> Submit a Prayer Request
+                </a>
+                <a href="#about" class="btn-white">
+                    <i class="fa-solid fa-compass"></i> Discover Our Mission
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>About Our Ministry</span>
+                <h2>A Heart Dedicated to Prayer</h2>
+                <p>Marsil Pray Team is a Christian prayer community committed to seeking God, strengthening faith, supporting one another, praying for families and communities, and sharing the message of Jesus Christ.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>We believe in the transformative power of persistent prayer and the unfailing love of our Lord. Gathered together in unity and spiritual devotion, our ministry serves as a beacon of hope, intercession, and fellowship for believers everywhere.</p>
+                    <p>Whether you are seeking spiritual renewal, comfort in times of trial, or a dedicated community to stand with you in agreement, our doors and hearts are always open.</p>
+                    
+                    <div class="cards-row">
+                        <div class="about-card">
+                            <h3>Our Vision</h3>
+                            <p>To build a vibrant global community united in faith, continuous prayer, and spiritual growth.</p>
+                        </div>
+                        <div class="about-card">
+                            <h3>Our Mission</h3>
+                            <p>To encourage believers through powerful prayer gatherings, uplifting worship, and authentic Christian fellowship.</p>
+                        </div>
+                        <div class="about-card">
+                            <h3>Our Faith</h3>
+                            <p>To follow Jesus Christ wholeheartedly, living and preaching according to the infallible truth of God's Word.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn-gold">Learn More About Us <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="about-image-wrapper reveal">
+                    <img src="https://placehold.co/800x1000/0b192c/ffffff?text=People+Praying+Together" alt="Members of Marsil Pray Team praying in fellowship">
+                    <div class="experience-badge">
+                        <h4>In Unity</h4>
+                        <p>Standing together in faith, lifting every petition to God.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries and Activities Section -->
+    <section id="ministries" class="ministries-bg">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>What We Do</span>
+                <h2>Our Ministries & Activities</h2>
+                <p>Explore the various ways we gather, worship, study Scripture, and serve our community through the power of the Holy Spirit.</p>
+            </div>
+
+            <div class="ministries-grid">
+                <!-- Ministry 1 -->
+                <div class="ministry-card reveal">
+                    <img src="https://placehold.co/600x400/1e3e62/ffffff?text=Prayer+Intercession" alt="Prayer and Intercession" class="ministry-img">
+                    <div class="ministry-content">
+                        <div class="ministry-icon">
+                            <i class="fa-solid fa-hands-praying"></i>
+                        </div>
+                        <h3>Prayer and Intercession</h3>
+                        <p>Dedicated prayer chains and intercession meetings lifting up personal petitions, families, leaders, and nations.</p>
+                        <a href="#contact" class="link-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Ministry 2 -->
+                <div class="ministry-card reveal">
+                    <img src="https://placehold.co/600x400/1e3e62/ffffff?text=Worship+Praise" alt="Worship and Praise" class="ministry-img">
+                    <div class="ministry-content">
+                        <div class="ministry-icon">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <h3>Worship and Praise</h3>
+                        <p>Lifting our voices in heartfelt songs of adoration, creating a sacred atmosphere for God's presence to dwell.</p>
+                        <a href="#contact" class="link-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Ministry 3 -->
+                <div class="ministry-card reveal">
+                    <img src="https://placehold.co/600x400/1e3e62/ffffff?text=Bible+Study" alt="Bible Study" class="ministry-img">
+                    <div class="ministry-content">
+                        <div class="ministry-icon">
+                            <i class="fa-solid fa-book-bible"></i>
+                        </div>
+                        <h3>Bible Study</h3>
+                        <p>Deep-dive scriptural teachings designed to anchor believers in sound doctrine and daily application of God's Word.</p>
+                        <a href="#contact" class="link-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Ministry 4 -->
+                <div class="ministry-card reveal">
+                    <img src="https://placehold.co/600x400/1e3e62/ffffff?text=Youth+Fellowship" alt="Youth Fellowship" class="ministry-img">
+                    <div class="ministry-content">
+                        <div class="ministry-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3>Youth Fellowship</h3>
+                        <p>Empowering the next generation with godly wisdom, peer encouragement, and active spiritual mentorship.</p>
+                        <a href="#contact" class="link-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Ministry 5 -->
+                <div class="ministry-card reveal">
+                    <img src="https://placehold.co/600x400/1e3e62/ffffff?text=Family+Prayer" alt="Family Prayer" class="ministry-img">
+                    <div class="ministry-content">
+                        <div class="ministry-icon">
+                            <i class="fa-solid fa-house-chimney-user"></i>
+                        </div>
+                        <h3>Family Prayer</h3>
+                        <p>Specialized prayer sessions focusing on marital harmony, parenting in faith, and spiritual protection over households.</p>
+                        <a href="#contact" class="link-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Ministry 6 -->
+                <div class="ministry-card reveal">
+                    <img src="https://placehold.co/600x400/1e3e62/ffffff?text=Community+Outreach" alt="Community Outreach" class="ministry-img">
+                    <div class="ministry-content">
+                        <div class="ministry-icon">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Community Outreach</h3>
+                        <p>Sharing Christ's unconditional love through acts of kindness, charity support, and community assistance programs.</p>
+                        <a href="#contact" class="link-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Request Section -->
+    <section id="prayer" class="prayer-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>Share Your Burden</span>
+                <h2>You Are Not Alone. Let Us Pray With You.</h2>
+                <p>Submit your prayer requests to our dedicated intercession team. We commit to lifting your needs before the Lord in faith and agreement.</p>
+            </div>
+
+            <div class="prayer-form-wrapper reveal">
+                <div id="formAlert" class="form-alert"></div>
+                
+                <form id="prayerRequestForm" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name (Optional)</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address (Optional)</label>
+                            <input type="email" id="emailAddress" class="form-control" placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="prayerMessage">Prayer Request Message <span style="color: var(--accent);">*</span></label>
+                        <textarea id="prayerMessage" class="form-control" placeholder="Share what you would like us to pray for..." required></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="confidentialCheck" checked>
+                        <label for="confidentialCheck">Please handle this prayer request confidentially (shared only with the core prayer leaders)</label>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn-gold" style="width: 100%; max-width: 300px; padding: 1rem;">
+                            <i class="fa-solid fa-paper-plane"></i> Send Prayer Request
+                        </button>
+                    </div>
+
+                    <p class="demo-notice">Note: This is a front-end demonstration form. Submissions are processed locally for demonstration and are not stored permanently or transmitted externally without a connected backend service.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>Gather With Us</span>
+                <h2>Upcoming Events & Gatherings</h2>
+                <p>Join us in person or online for our scheduled prayer meetings, Bible studies, and worship gatherings.</p>
+            </div>
+
+            <div class="events-grid">
+                <!-- Event 1 -->
+                <div class="event-card reveal">
+                    <div>
+                        <span class="event-date-badge">Every Saturday</span>
+                        <h3>Saturday Prayer Gathering</h3>
+                        <ul class="event-info">
+                            <li><i class="fa-regular fa-clock"></i> 12:00 PM – 1:00 PM</li>
+                            <li><i class="fa-solid fa-location-dot"></i> Hawassa, Ethiopia</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-gold" style="width: 100%; text-align: center; padding: 0.6rem;">Register / Join</a>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card reveal">
+                    <div>
+                        <span class="event-date-badge">Every Sunday</span>
+                        <h3>Sunday Night Service</h3>
+                        <ul class="event-info">
+                            <li><i class="fa-regular fa-clock"></i> 11:30 PM – 2:00 AM</li>
+                            <li><i class="fa-solid fa-location-dot"></i> Hawassa, Ethiopia</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-gold" style="width: 100%; text-align: center; padding: 0.6rem;">Register / Join</a>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card reveal">
+                    <div>
+                        <span class="event-date-badge">First Friday of Month</span>
+                        <h3>Worship and Praise Night</h3>
+                        <ul class="event-info">
+                            <li><i class="fa-regular fa-clock"></i> 7:00 PM – 9:30 PM</li>
+                            <li><i class="fa-solid fa-location-dot"></i> Main Worship Auditorium</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-gold" style="width: 100%; text-align: center; padding: 0.6rem;">Register / Join</a>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card reveal">
+                    <div>
+                        <span class="event-date-badge">Quarterly Event</span>
+                        <h3>Special Prayer & Fasting</h3>
+                        <ul class="event-info">
+                            <li><i class="fa-regular fa-clock"></i> 6:00 AM – 6:00 PM</li>
+                            <li><i class="fa-solid fa-location-dot"></i> Prayer Chapel & Online</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-gold" style="width: 100%; text-align: center; padding: 0.6rem;">Register / Join</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripture Banner Section -->
+    <section class="scripture-banner">
+        <div class="container scripture-content reveal">
+            <div class="scripture-icon">
+                <i class="fa-solid fa-cross"></i>
+            </div>
+            <blockquote>
+                “For where two or three gather in my name, there am I with them.”
+            </blockquote>
+            <cite>— Matthew 18:20</cite>
+        </div>
+    </section>
+
+    <!-- Sermons and Messages Section -->
+    <section id="sermons" class="sermons-bg">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>Spiritual Encouragement</span>
+                <h2>Sermons & Messages</h2>
+                <p>Nurture your spirit with recent messages, teachings, and biblical insights from our ministry team.</p>
+            </div>
+
+            <div class="sermons-grid">
+                <!-- Sermon 1 -->
+                <div class="sermon-card reveal">
+                    <div class="sermon-media">
+                        <img src="https://placehold.co/600x400/0b192c/ffffff?text=The+Power+of+Prayer" alt="The Power of Prayer">
+                        <a href="#contact" class="play-overlay" aria-label="Watch message">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="sermon-body">
+                        <span class="sermon-meta">Scripture: James 5:16</span>
+                        <h3>The Power of Prayer</h3>
+                        <p>Discover how fervent and righteous prayer unlocks divine breakthroughs and transforms everyday circumstances.</p>
+                        <a href="#contact" class="link-arrow">Watch Message <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Sermon 2 -->
+                <div class="sermon-card reveal">
+                    <div class="sermon-media">
+                        <img src="https://placehold.co/600x400/0b192c/ffffff?text=Growing+in+Faith" alt="Growing in Faith">
+                        <a href="#contact" class="play-overlay" aria-label="Watch message">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="sermon-body">
+                        <span class="sermon-meta">Scripture: Romans 10:17</span>
+                        <h3>Growing in Faith</h3>
+                        <p>Practical spiritual habits to root yourself deeply in God's Word and stand firm against life's challenges.</p>
+                        <a href="#contact" class="link-arrow">Watch Message <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Sermon 3 -->
+                <div class="sermon-card reveal">
+                    <div class="sermon-media">
+                        <img src="https://placehold.co/600x400/0b192c/ffffff?text=Trusting+God" alt="Trusting God in Every Season">
+                        <a href="#contact" class="play-overlay" aria-label="Watch message">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="sermon-body">
+                        <span class="sermon-meta">Scripture: Proverbs 3:5-6</span>
+                        <h3>Trusting God in Every Season</h3>
+                        <p>Finding supernatural peace, guidance, and contentment regardless of the changing seasons of life.</p>
+                        <a href="#contact" class="link-arrow">Watch Message <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="container">
+            <div class="section-header reveal">
+                <span>Faith Stories</span>
+                <h2>Faith Stories & Encouragement</h2>
+                <p>Read how God has been moving in the lives of believers within our fellowship community.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">“Joining the Marsil Pray Team changed my prayer life completely. Standing in unity with other believers during tough times brought profound peace to my family.”</p>
+                    <div class="testimonial-author">
+                        <h4>Sarah M.</h4>
+                        <span>Ministry Member</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">“The weekly prayer meetings and Bible study sessions have given me a deeper biblical foundation and a wonderful church family that truly cares.”</p>
+                    <div class="testimonial-author">
+                        <h4>David K.</h4>
+                        <span>Prayer Partner</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">“Whenever I submitted a prayer request, I felt the loving support and spiritual backing of the team. God's faithfulness is truly evident here.”</p>
+                    <div class="testimonial-author">
+                        <h4>Grace L.</h4>
+                        <span>Community Participant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-cta reveal">
+                <p>Are you a member whose life has been blessed through this ministry? We would love to hear your testimony with permission.</p>
+                <a href="#contact" class="btn-gold"><i class="fa-solid fa-pen-nib"></i> Share Your Testimony</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="ministries-bg">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>Get in Touch</span>
+                <h2>Connect With Marsil Pray Team</h2>
+                <p>We would love to hear from you. Reach out with questions, fellowship inquiries, or partnership opportunities.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="reveal">
+                    <h3 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.75rem; margin-bottom: 1.5rem;">Reach Out to Us</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Our team is ready to answer your questions and welcome you into our fellowship. Contact us through any of the channels below.</p>
+                    
+                    <ul class="contact-info-list">
+                        <li>
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Address</h4>
+                                <p><a href="mailto:info@marsilprayteam.org">info@marsilprayteam.org</a> (Placeholder)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone Number</h4>
+                                <p><a href="tel:+942635420">+942635420(0992434053)</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4>Church Address</h4>
+                                <p>Hawassa, Ethiopia</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Weekly Meeting Times</h4>
+                                <p>Saturday at 12:00 PM to 1:00 PM & Sunday at 11:30 PM to 2:00 AM</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-card reveal">
+                    <h3>Send Us a Message</h3>
+                    <div id="contactFormAlert" class="form-alert"></div>
+                    
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="contactName">Your Name <span style="color: var(--accent);">*</span></label>
+                            <input type="text" id="contactName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address <span style="color: var(--accent);">*</span></label>
+                            <input type="email" id="contactEmail" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Message <span style="color: var(--accent);">*</span></label>
+                            <textarea id="contactMessage" class="form-control" placeholder="Type your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-gold" style="width: 100%; padding: 0.9rem;">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <p class="demo-notice" style="color: var(--text-muted); margin-top: 1rem;">Note: Real message delivery requires a backend service or form handler integration.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo-brand" style="margin-bottom: 1rem; display: inline-flex;">
+                        <i class="fa-solid fa-cross"></i>
+                        <span>Marsil Pray Team</span>
+                    </a>
+                    <p>A Christian ministry devoted to seeking God, interceding for families and communities, and spreading the light and love of Jesus Christ.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#prayer">Prayer Requests</a></li>
+                        <li><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sermons">Sermons</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#prayer">Join Prayer Team</a></li>
+                        <li><a href="#contact">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="closing-quote">“May the love of Christ unite us, and may our prayers strengthen one another.”</div>
+                <p>&copy; <span id="currentYear"></span> Marsil Pray Team. All rights reserved. Designed for spiritual inspiration and ministry excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Vanilla JavaScript Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Automatic Current Year in Footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // 2. Mobile Navigation Menu Toggle & Smooth Link Closing
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            function toggleMenu() {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    hamburgerIcon.classList.remove('fa-bars');
+                    hamburgerIcon.classList.add('fa-xmark');
+                } else {
+                    hamburgerIcon.classList.remove('fa-xmark');
+                    hamburgerIcon.classList.add('fa-bars');
+                }
+            }
+
+            hamburgerBtn.addEventListener('click', toggleMenu);
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // 3. Scroll-triggered Reveal Animations using IntersectionObserver
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserverOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealObserverOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+
+            // 4. Navbar Active Link Highlighting on Scroll
+            const sections = document.querySelectorAll('section');
+            const windowScroll = () => {
+                let scrollPos = window.scrollY + 120;
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    const id = section.getAttribute('id');
+                    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+
+                    if (link && scrollPos >= top && scrollPos < top + height) {
+                        navItems.forEach(i => i.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+
+                // Back to top button visibility
+                const backToTopBtn = document.getElementById('backToTopBtn');
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            };
+
+            window.addEventListener('scroll', windowScroll);
+
+            // Back to top click action
+            document.getElementById('backToTopBtn').addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 5. Prayer Request Form Validation & Feedback
+            const prayerForm = document.getElementById('prayerRequestForm');
+            const formAlert = document.getElementById('formAlert');
+
+            prayerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const message = document.getElementById('prayerMessage').value.trim();
+
+                formAlert.className = 'form-alert';
+                formAlert.textContent = '';
+
+                if (!message) {
+                    formAlert.className = 'form-alert error';
+                    formAlert.textContent = 'Please enter your prayer request message before submitting.';
+                    return;
+                }
+
+                // Success simulation feedback
+                formAlert.className = 'form-alert success';
+                formAlert.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your prayer request has been received by the front-end demo handler. Our prayer team stands with you in faith.';
+                prayerForm.reset();
+            });
+
+            // 6. Contact Form Validation & Feedback
+            const contactForm = document.getElementById('contactForm');
+            const contactFormAlert = document.getElementById('contactFormAlert');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const msg = document.getElementById('contactMessage').value.trim();
+
+                contactFormAlert.className = 'form-alert';
+                contactFormAlert.textContent = '';
+
+                if (!name || !email || !msg) {
+                    contactFormAlert.className = 'form-alert error';
+                    contactFormAlert.textContent = 'Please fill out all required fields marked with an asterisk (*).';
+                    return;
+                }
+
+                // Simple email validation regex
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    contactFormAlert.className = 'form-alert error';
+                    contactFormAlert.textContent = 'Please enter a valid email address.';
+                    return;
+                }
+
+                // Success feedback
+                contactFormAlert.className = 'form-alert success';
+                contactFormAlert.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you, ' + name + '! Your message was successfully simulated. We will connect with you soon.';
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
